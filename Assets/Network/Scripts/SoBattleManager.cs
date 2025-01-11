@@ -30,6 +30,6 @@ namespace Network.Scripts
             if (!PlayerIds.Contains(playerId)) PlayerIds.Add(playerId);
         }
 
-        public static bool IsPlayersCollected => PlayerIds.Count >= 1;
+        public static bool IsPlayersCollected => PlayerIds.Count >= 2;
     }
 }

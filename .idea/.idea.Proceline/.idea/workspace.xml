@@ -5,8 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6515ab88-c904-406a-94b2-d0b6f313bbb7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Proceline/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Proceline/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Commands/Scripts/ClientActionCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Commands/Scripts/ClientActionCommand.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Commands/Scripts/IActionClientUnit.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Commands/Scripts/IActionClientUnit.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Commands/Scripts/IBattleNote.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Commands/Scripts/IBattleNote.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Commands/Scripts/IBattleTracker.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Commands/Scripts/IBattleTracker.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Commands/Scripts/ServerTranslatedCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Commands/Scripts/ServerTranslatedCommand.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Network/Scripts/SoBattleManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Network/Scripts/SoBattleManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,6 +102,7 @@
       <workItem from="1735109344471" duration="961000" />
       <workItem from="1736532558559" duration="916000" />
       <workItem from="1736533962159" duration="762000" />
+      <workItem from="1736535861930" duration="27370000" />
     </task>
     <servers />
   </component>
