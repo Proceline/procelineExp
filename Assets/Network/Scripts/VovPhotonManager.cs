@@ -1,4 +1,6 @@
+using System;
 using Fusion;
+using Network.Scripts;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,11 +8,21 @@ public class VovPhotonManager : MonoBehaviour
 {
     private NetworkRunner _runner;
 
-    async void Start()
+    public void StartHostGame()
+    {
+        StartGame(GameMode.AutoHostOrClient);
+    }
+    
+    public void StartClientGame()
+    {
+        StartGame(GameMode.Client);
+    }
+    
+    private async void StartGame(GameMode mode)
     {
         _runner = gameObject.AddComponent<NetworkRunner>();
 
-        var sceneRef = SceneRef.FromIndex(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
+        var sceneRef = SceneRef.FromIndex(SceneManager.GetActiveScene().buildIndex);
         var sceneInfo = new NetworkSceneInfo();
 
         if (sceneRef.IsValid)
@@ -20,12 +32,12 @@ public class VovPhotonManager : MonoBehaviour
         
         var startGameArgs = new StartGameArgs
         {
-            GameMode = GameMode.Host, // Or GameMode.Client for clients
+            GameMode = mode, // Or GameMode.Client for clients
             SessionName = "RPGBattleSession", // Name of the session
             Scene = sceneRef,
             SceneManager = gameObject.AddComponent<NetworkSceneManagerDefault>()
         };
-
+        
         await _runner.StartGame(startGameArgs);
         Debug.Log("Network started as host.");
     }

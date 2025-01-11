@@ -32,10 +32,15 @@ public class ActionManager : MonoBehaviour
     {
         BroadcastResults(new int[] { 2, 1, 2 });
     }
-    
+
     [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
-    public void BroadcastResults(int[] healthValues) {
-        Debug.Log("Broadcasting results to all clients.");
+    public void BroadcastResults(int[] healthValues)
+    {
+        for (int i = 0; i < healthValues.Length; i++)
+        {
+            Debug.Log($"Player {i + 1} health: {healthValues[i]}");
+            // Update player health UI or animations here
+        }
     }
 }
 
