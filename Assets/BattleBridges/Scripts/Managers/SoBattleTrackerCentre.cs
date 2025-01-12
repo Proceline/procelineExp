@@ -1,8 +1,7 @@
 using System.Collections.Generic;
 using BattleBridges.Scripts.Commands;
+using BattleBridges.Scripts.Controller;
 using Commands.Scripts;
-using Network.Scripts;
-using UnityEngine;
 
 namespace BattleBridges.Scripts.Managers
 {
@@ -10,6 +9,20 @@ namespace BattleBridges.Scripts.Managers
     {
         private readonly Dictionary<(int, int), IUnitCondition> _unitsInCurrentBattle = new();
         private readonly List<ServerActionCommand> _commands = new();
+
+        private static ServerNotesAnalyzer _analyzerInstance;
+        public static ServerNotesAnalyzer GetExistedAnalyzer
+        {
+            get
+            {
+                if (_analyzerInstance == null)
+                {
+                    _analyzerInstance = FindAnyObjectByType<ServerNotesAnalyzer>();
+                }
+
+                return _analyzerInstance;
+            }
+        }
 
         public IUnitCondition GetConditionOfUnit((int, int) identity)
         {
@@ -25,7 +38,7 @@ namespace BattleBridges.Scripts.Managers
             
             // TODO: Remember to REMOVE!
             _internalInstance.AnalyzeNextCommand();
-            ServerEssentialSpawner.AllMessageCollected = true;
+            GetExistedAnalyzer.PrepareForMessageDelivery();
             // End TODO
         }
         
@@ -65,7 +78,6 @@ namespace BattleBridges.Scripts.Managers
             var serverCommand = _commands[lastIndex];
             _commands.RemoveAt(lastIndex);
             serverCommand.ArchiveResult(this);
-            Debug.LogError("Server analyzed Command");
         }
     }
 }

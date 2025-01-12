@@ -1,4 +1,3 @@
-using BattleBridges.Scripts.BattleNotes;
 using BattleBridges.Scripts.Managers;
 using Fusion;
 using UnityEngine;
@@ -23,19 +22,7 @@ namespace BattleBridges.Scripts.Controller
 
         public override void FixedUpdateNetwork()
         {
-            var hello = Runner.GetInputForPlayer<BattleNoteAnimationInput>(Object.InputAuthority);
-            Debug.Log(((BattleNoteAnimationInput)hello).AnimatingCharacter);
-            if (GetInput(out BattleNoteAnimationInput animInput))
-            {
-                Debug.Log($"{animInput.AnimatingCharacter} has acted animation {animInput.AnimationHexId}, at time {animInput.Timeline}");
-            }
-
-            if (GetInput(out BattleNoteAttributeValueInput valueInput))
-            {
-                
-                Debug.Log($"{valueInput.FromUnit} has applied value {valueInput.DeltaValue} to {valueInput.TargetUnit}" +
-                          $", result HitPoint is {valueInput.AfterValue} on Attribute {valueInput.AttributeFieldId}");
-            }
+            
         }
         
         /// <summary>

@@ -1,7 +1,6 @@
-using BattleBridges.Scripts.BattleNotes;
+using BattleBridges.Scripts.Controller;
 using BattleBridges.Scripts.Managers;
 using Commands.Scripts;
-using Network.Scripts;
 using UnityEngine;
 
 namespace BattleBridges.Scripts.Commands
@@ -35,31 +34,21 @@ namespace BattleBridges.Scripts.Commands
                 var damage = 10f;
                 var resultValue = 90;
                 targetUnit.ReceiveDamage(damage, resultValue);
-                var animationNote = new BattleNoteAnimationInput
+                ServerNotesAnalyzer.EnqueueServerMessage(0, orderIndex =>
                 {
-                    AnimatingCharacter = hostPair,
-                    AnimationHexId = 0x0000,
-                    Timeline = 0
-                };
-                var onHitNote = new BattleNoteAnimationInput
+                    SoBattleTrackerCentreBridge.GetExistedAnalyzer.RpcSendAnimationNote(orderIndex, 0, hostPair,
+                        0x0000);
+                });
+                ServerNotesAnalyzer.EnqueueServerMessage(1, orderIndex =>
                 {
-                    AnimatingCharacter = targetPair,
-                    AnimationHexId = 0x0001,
-                    Timeline = 5
-                };
-                var battleNote = new BattleNoteAttributeValueInput
+                    SoBattleTrackerCentreBridge.GetExistedAnalyzer.RpcSendAnimationNote(orderIndex, 5, targetPair,
+                        0x0001);
+                });
+                ServerNotesAnalyzer.EnqueueServerMessage(2, orderIndex =>
                 {
-                    AfterValue = resultValue,
-                    AttributeFieldId = 0x0000, // HitPoint
-                    BeforeValue = 100,
-                    DeltaValue = Mathf.CeilToInt(damage),
-                    FromUnit = hostPair,
-                    TargetUnit = targetPair,
-                    Timeline = 5,
-                };
-                ServerEssentialSpawner.EnqueueServerMessage(0, input => input.Set(animationNote));
-                ServerEssentialSpawner.EnqueueServerMessage(1, input => input.Set(onHitNote));
-                ServerEssentialSpawner.EnqueueServerMessage(2, input => input.Set(battleNote));
+                    SoBattleTrackerCentreBridge.GetExistedAnalyzer.RpcSendActionNote(orderIndex, 5, hostPair, targetPair,
+                        new Vector3Int(100, resultValue, Mathf.RoundToInt(damage)));
+                });
             }
             else if (_allowToZeroHp)
             {

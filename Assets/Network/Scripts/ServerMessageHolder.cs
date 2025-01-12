@@ -1,10 +1,20 @@
-using Network.Scripts;
+using System;
 
-namespace Commands.Scripts
+namespace Network.Scripts
 {
     public class ServerMessageHolder
     {
-        public int order;
-        public ServerMessageAction
+        internal int MessageOrder { get; }
+        internal Action<int> OnServerInputDelivered;
+
+        public ServerMessageHolder(int order)
+        {
+            MessageOrder = order;
+        }
+
+        public void Invoke()
+        {
+            OnServerInputDelivered?.Invoke(MessageOrder);
+        }
     }
 }

@@ -9,24 +9,8 @@ namespace Network.Scripts
     public class ServerEssentialSpawner : MonoBehaviour, INetworkRunnerCallbacks
     {
         [SerializeField] private NetworkPrefabRef playerController;
-        private readonly Dictionary<PlayerRef, NetworkObject> _controllers = new();
-
-        public static bool AllMessageCollected { get; set; } = false;
-        private static readonly Queue<ServerMessageAction> PendingMessageActions = new();
         
-        /// <summary>
-        /// Used for resend the action, but also can be used as Pool
-        /// </summary>
-        private static readonly List<ServerMessageAction> UsedServerMessageCollection = new();
-
-        public static void EnqueueServerMessage(int messageOrder, Action<NetworkInput> function)
-        {
-            var action = new ServerMessageAction(messageOrder)
-            {
-                OnServerInputDelivered = function
-            };
-            PendingMessageActions.Enqueue(action);
-        }
+        private readonly Dictionary<PlayerRef, NetworkObject> _controllers = new();
         
         public void OnPlayerJoined(NetworkRunner runner, PlayerRef player)
         {
@@ -49,40 +33,7 @@ namespace Network.Scripts
 
         public void OnInput(NetworkRunner runner, NetworkInput input)
         {
-            if (runner.IsServer)
-            {
-                var animationNote = new BattleBridges.Scripts.BattleNotes.BattleNoteAnimationInput
-                {
-                    AnimatingCharacter = new Vector2Int(2, 2),
-                    AnimationHexId = 0x0000,
-                    Timeline = 0
-                };
-                input.Set(animationNote);
-            }
-            if (AllMessageCollected)
-            {
-                if (runner.IsServer && PendingMessageActions.Count > 0)
-                {
-                    var pendingAction = PendingMessageActions.Dequeue();
-                    pendingAction?.Invoke(input);
-                    UsedServerMessageCollection.Add(pendingAction);
-                }
-
-                // Check possible missing delivered action
-                if (PendingMessageActions.Count == 0)
-                {
-                    foreach (var message in UsedServerMessageCollection)
-                    {
-                        PendingMessageActions.Enqueue(message);
-                    }
-                    // AllMessageCollected = false;
-                }
-            }
-
-            if (!runner.IsServer && PendingMessageActions.Count > 0)
-            {
-                Debug.LogError("Server and Client Mixed Up!");
-            }
+            
         }
 
         public void OnShutdown(NetworkRunner runner, ShutdownReason shutdownReason) { }
@@ -98,7 +49,9 @@ namespace Network.Scripts
         public void OnReliableDataReceived(NetworkRunner runner, PlayerRef player, ReliableKey key, ArraySegment<byte> data) { }
         public void OnReliableDataProgress(NetworkRunner runner, PlayerRef player, ReliableKey key, float progress) { }
         public void OnInputMissing(NetworkRunner runner, PlayerRef player, NetworkInput input) { }
+
         public void OnConnectedToServer(NetworkRunner runner) { }
+
         public void OnSessionListUpdated(NetworkRunner runner, List<SessionInfo> sessionList) { }
         public void OnCustomAuthenticationResponse(NetworkRunner runner, Dictionary<string, object> data) { }
 

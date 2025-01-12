@@ -7,6 +7,7 @@ namespace Network.Scripts
     public class VovPhotonManager : MonoBehaviour
     {
         private NetworkRunner _runner;
+        [SerializeField] private NetworkPrefabRef serverAnalyzer;
 
         public void StartHostGame()
         {
@@ -39,7 +40,12 @@ namespace Network.Scripts
             };
         
             await _runner.StartGame(startGameArgs);
-            Debug.Log("Network started as host.");
+
+            if (_runner.IsServer)
+            {
+                Debug.Log("Network started as host.");
+                _runner.Spawn(serverAnalyzer, Vector3.zero, Quaternion.identity);
+            }
         }
     }
 }
