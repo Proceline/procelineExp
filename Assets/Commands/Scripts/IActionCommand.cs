@@ -8,8 +8,8 @@ namespace Commands.Scripts
         public uint GetActionTarget { get; }
     }
     
-    public interface IActionCommand<out T> : IActionCommand
+    public interface IActionCommand<out T, in TV> : IActionCommand
     {
-        public T Archive();
+        public T ArchiveResult(TV visitor);
     }
 }

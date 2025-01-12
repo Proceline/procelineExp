@@ -1,30 +1,40 @@
+using System;
 using Fusion;
-using Network.Scripts;
 using UnityEngine;
 
-public class VovPlayerActions : NetworkBehaviour
+namespace Network.Scripts
 {
-    private void Update()
+    public class VovPlayerActions : NetworkBehaviour
     {
-        if (Input.GetKeyDown(KeyCode.A) && Object.HasInputAuthority)
+        public static event Action<int> OnPlayerControllerLoaded;
+        
+        private void Start()
         {
-            RpcOnServerCommandReceived(Object.InputAuthority);
+            OnPlayerControllerLoaded?.Invoke(Object.InputAuthority.PlayerId);
         }
-    }
 
-    public override void FixedUpdateNetwork()
-    {
-        if (GetInput(out VovNetInputData data))
+        private void Update()
         {
-            Debug.Log("Received Data! " + data.ActionId);
+            if (Input.GetKeyDown(KeyCode.A) && Object.HasInputAuthority)
+            {
+                RpcOnServerCommandReceived(Object.InputAuthority);
+            }
         }
-    }
+
+        public override void FixedUpdateNetwork()
+        {
+            if (GetInput(out VovNetInputData data))
+            {
+                Debug.Log("Received Data! " + data.ActionId);
+            }
+        }
     
-    [Rpc(RpcSources.InputAuthority, RpcTargets.StateAuthority)]
-    public void RpcOnServerCommandReceived(PlayerRef playerRef)
-    {
-        if (!Runner.IsServer) return;
-        Debug.Log($"Player {playerRef.PlayerId} action Delivered!");
-        SoBattleManager.AddPlayer(playerRef.PlayerId);
+        [Rpc(RpcSources.InputAuthority, RpcTargets.StateAuthority)]
+        public void RpcOnServerCommandReceived(PlayerRef playerRef)
+        {
+            if (!Runner.IsServer) return;
+            Debug.Log($"Player {playerRef.PlayerId} action Delivered!");
+            SoBattleManager.AddPlayer(playerRef.PlayerId);
+        }
     }
 }

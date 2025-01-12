@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7453645f8f5cebe45bf435e678df2670, type: 3}
+  m_Name: BattleTrackerCentreBridge
+  m_EditorClassIdentifier: 
+  testPrefab: {fileID: -1257956725758055040, guid: 5341d6b5719c8044383b87e7b6d0f6fa, type: 3}

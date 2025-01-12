@@ -5,17 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6515ab88-c904-406a-94b2-d0b6f313bbb7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Commands/Scripts/ClientActionCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Commands/Scripts/ClientActionCommand.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Commands/Scripts/IActionClientUnit.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Commands/Scripts/IActionClientUnit.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Commands/Scripts/IBattleNote.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Commands/Scripts/IBattleNote.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Commands/Scripts/IBattleTracker.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Commands/Scripts/IBattleTracker.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Commands/Scripts/ServerTranslatedCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Commands/Scripts/ServerTranslatedCommand.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Network/Scripts/SoBattleManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Network/Scripts/SoBattleManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Commands/Scripts/AttributeTracesBattleNote.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Commands/Scripts/AttributeTracesBattleNote.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Commands/Scripts/DeliverableBattleTracker.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Commands/Scripts/DeliverableBattleTracker.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Commands/Scripts/IUnitCondition.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Commands/Scripts/IUnitCondition.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Commands/Scripts/ServerValueAppliedCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Commands/Scripts/ServerValueAppliedCommand.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Commands/Scripts/IActionCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Commands/Scripts/IActionCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Commands/Scripts/IBattleNote.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Commands/Scripts/IBattleNote.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Commands/Scripts/IBattleTracker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Commands/Scripts/IBattleTracker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Commands/Scripts/ServerTranslatedCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Commands/Scripts/ServerActionCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Commands/Scripts/ServerTranslatedCommand.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Commands/Scripts/ServerActionCommand.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Network/Scripts/VovCharacterSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Network/Scripts/VovCharacterSpawner.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +27,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/d819e76d2dac496782e863b6fab6eea3bcc00/38/481f4105/NetworkSceneInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Commands/Scripts/ServerActionCommand.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -103,6 +107,7 @@
       <workItem from="1736532558559" duration="916000" />
       <workItem from="1736533962159" duration="762000" />
       <workItem from="1736535861930" duration="27370000" />
+      <workItem from="1736621607261" duration="754000" />
     </task>
     <servers />
   </component>

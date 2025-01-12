@@ -1,7 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
-using Fusion;
 using UnityEngine;
 
 namespace Network.Scripts
@@ -14,7 +12,7 @@ namespace Network.Scripts
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         private static void InitializeStaticInstance()
         {
-            var sourceObjects = Resources.LoadAll<SoBattleManager>(String.Empty);
+            var sourceObjects = Resources.LoadAll<SoBattleManager>(string.Empty);
             if (sourceObjects == null || sourceObjects.Length <= 0)
             {
                 throw new NullReferenceException($"{nameof(SoBattleManager)} Cannot be located!");
