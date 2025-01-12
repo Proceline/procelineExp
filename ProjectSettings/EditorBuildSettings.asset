@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Network/Scenes/NetworkScene.unity
+    path: Assets/BattleBridges/Scenes/NetworkScene.unity
     guid: 5e0dbf8c3b3985b48bace9161037b30c
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

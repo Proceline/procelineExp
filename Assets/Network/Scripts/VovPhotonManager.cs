@@ -1,44 +1,45 @@
-using System;
 using Fusion;
-using Network.Scripts;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class VovPhotonManager : MonoBehaviour
+namespace Network.Scripts
 {
-    private NetworkRunner _runner;
-
-    public void StartHostGame()
+    public class VovPhotonManager : MonoBehaviour
     {
-        StartGame(GameMode.AutoHostOrClient);
-    }
-    
-    public void StartClientGame()
-    {
-        StartGame(GameMode.Client);
-    }
-    
-    private async void StartGame(GameMode mode)
-    {
-        _runner = gameObject.AddComponent<NetworkRunner>();
+        private NetworkRunner _runner;
 
-        var sceneRef = SceneRef.FromIndex(SceneManager.GetActiveScene().buildIndex);
-        var sceneInfo = new NetworkSceneInfo();
-
-        if (sceneRef.IsValid)
+        public void StartHostGame()
         {
-            sceneInfo.AddSceneRef(sceneRef, LoadSceneMode.Additive);
+            StartGame(GameMode.AutoHostOrClient);
         }
-        
-        var startGameArgs = new StartGameArgs
+    
+        public void StartClientGame()
         {
-            GameMode = mode, // Or GameMode.Client for clients
-            SessionName = "RPGBattleSession", // Name of the session
-            Scene = sceneRef,
-            SceneManager = gameObject.AddComponent<NetworkSceneManagerDefault>()
-        };
+            StartGame(GameMode.Client);
+        }
+    
+        private async void StartGame(GameMode mode)
+        {
+            _runner = gameObject.AddComponent<NetworkRunner>();
+
+            var sceneRef = SceneRef.FromIndex(SceneManager.GetActiveScene().buildIndex);
+            var sceneInfo = new NetworkSceneInfo();
+
+            if (sceneRef.IsValid)
+            {
+                sceneInfo.AddSceneRef(sceneRef, LoadSceneMode.Additive);
+            }
         
-        await _runner.StartGame(startGameArgs);
-        Debug.Log("Network started as host.");
+            var startGameArgs = new StartGameArgs
+            {
+                GameMode = mode, // Or GameMode.Client for clients
+                SessionName = "RPGBattleSession", // Name of the session
+                Scene = sceneRef,
+                SceneManager = gameObject.AddComponent<NetworkSceneManagerDefault>()
+            };
+        
+            await _runner.StartGame(startGameArgs);
+            Debug.Log("Network started as host.");
+        }
     }
 }

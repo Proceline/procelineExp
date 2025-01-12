@@ -4,7 +4,7 @@ namespace Commands.Scripts
 {
     public interface IUnitCondition
     {
-        public int UnitIndex { get; }
+        public (int, int) GetUnitIdentity { get; }
         public uint UnitTypeId { get; }
         
         public Vector2 GetHitPoint { get; }

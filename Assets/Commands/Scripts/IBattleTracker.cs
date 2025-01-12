@@ -1,11 +1,9 @@
-using System.Collections.Generic;
-
 namespace Commands.Scripts
 {
     public interface IBattleTracker
     {
-        public IUnitCondition GetConditionOfUnit(uint unitHexId);
-        public uint AssignHexForUnit(IUnitCondition newUnit);
+        public IUnitCondition GetConditionOfUnit((int, int) identity);
+        public bool AssignHexForUnit(IUnitCondition newUnit);
     }
 
     public interface IBattleTracker<in T> : IBattleTracker where T : IActionCommand
@@ -20,7 +18,5 @@ namespace Commands.Scripts
         public void InsertCommandAt(T command, int index);
         public void PushCommand(T command, bool existed);
         public void AnalyzeNextCommand();
-        public void AddNote(IBattleNote battleNote);
-        public void BroadcastNotes();
     }
 }
