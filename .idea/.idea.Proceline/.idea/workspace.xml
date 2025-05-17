@@ -4,22 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6515ab88-c904-406a-94b2-d0b6f313bbb7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Commands/Scripts/AttributeTracesBattleNote.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Commands/Scripts/AttributeTracesBattleNote.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Commands/Scripts/DeliverableBattleTracker.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Commands/Scripts/DeliverableBattleTracker.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Commands/Scripts/IUnitCondition.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Commands/Scripts/IUnitCondition.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Commands/Scripts/ServerValueAppliedCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Commands/Scripts/ServerValueAppliedCommand.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Commands/Scripts/IActionCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Commands/Scripts/IActionCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Commands/Scripts/IBattleNote.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Commands/Scripts/IBattleNote.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Commands/Scripts/IBattleTracker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Commands/Scripts/IBattleTracker.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Commands/Scripts/ServerTranslatedCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Commands/Scripts/ServerActionCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Commands/Scripts/ServerTranslatedCommand.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Commands/Scripts/ServerActionCommand.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Network/Scripts/VovCharacterSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Network/Scripts/VovCharacterSpawner.cs" afterDir="false" />
-    </list>
+    <list default="true" id="6515ab88-c904-406a-94b2-d0b6f313bbb7" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -108,6 +93,7 @@
       <workItem from="1736533962159" duration="762000" />
       <workItem from="1736535861930" duration="27370000" />
       <workItem from="1736621607261" duration="754000" />
+      <workItem from="1746326151455" duration="375000" />
     </task>
     <servers />
   </component>
